@@ -1,0 +1,178 @@
+/*
+  Design tokens — CSS implementation of DESIGN.md.
+  Change values here and in DESIGN.md together; never hardcode colors
+  anywhere else in the codebase.
+*/
+
+:root,
+[data-theme="dark"] {
+  --bg: #01050e;
+  --bg-elevated: #161a24;
+  --surface: #1E293B;
+  --surface-raised: #243244;
+  --border-subtle: #334155;
+  --border-strong: #475569;
+  --text-primary: #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --text-tertiary: #9CA3AF;
+  --text-on-accent: #0F172A;
+  --accent: #1EFFD9;
+  --accent-hover: #0FE5C9;
+  --accent-active: #0DC9B0;
+  --accent-soft: rgba(30, 255, 217, 0.10);
+  --accent-border: rgba(30, 255, 217, 0.30);
+  --gradient-mint: linear-gradient(135deg, oklch(86% .18 168), oklch(78% .16 210));
+  --brand-teal: #0F766E;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --data-positive: #06B6D4;
+  --data-negative: #F87171;
+  --glow-primary: rgba(30, 255, 217, 0.5);
+  --glow-secondary: rgba(56, 189, 248, 0.35);
+  --overlay: rgba(5, 10, 20, 0.72);
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-line-strong: rgba(255, 255, 255, 0.09);
+  --device-chrome: #000000;
+  --glass-base: rgba(255, 255, 255, 0.035);
+  --glass-highlight: rgba(255, 255, 255, 0.09);
+  --glass-tint: rgba(30, 255, 217, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-inset-hi: rgba(255, 255, 255, 0.16);
+  --glass-inset-lo: rgba(0, 0, 0, 0.35);
+  --glass-drop-shadow: rgba(0, 0, 0, 0.7);
+  --ambient-glow-1: rgba(30, 255, 217, 0.1);
+  --ambient-glow-2: rgba(56, 189, 248, 0.08);
+  --phone-nav-bar: #262a31;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #F7F9FC;
+  --bg-elevated: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-raised: #F1F5F9;
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-tertiary: #64748B;
+  --text-on-accent: #ffffff;
+  --accent: #1cbea7;
+  --accent-hover: #00d0a3;
+  --accent-active: #00b892;
+  --accent-soft: rgba(12, 156, 136, 0.08);
+  --accent-border: rgba(12, 156, 136, 0.28);
+  --gradient-mint: linear-gradient(135deg, oklch(0.75 0.15 174.44), oklch(0.69 0.12 207.89));
+  --brand-teal: #0F766E;
+  --success: #0F9D58;
+  --warning: #B45309;
+  --danger: #DC2626;
+  --data-positive: #0891B2;
+  --data-negative: #DC2626;
+  --glow-primary: rgba(12, 156, 136, 0.25);
+  --glow-secondary: rgba(8, 145, 178, 0.18);
+  --overlay: rgba(15, 23, 42, 0.45);
+  --grid-line: rgba(15, 23, 42, 0.055);
+  --grid-line-strong: rgba(15, 23, 42, 0.09);
+  --device-chrome: #000000;
+  --glass-base: rgba(15, 23, 42, 0.025);
+  --glass-highlight: rgba(255, 255, 255, 0.6);
+  --glass-tint: rgba(12, 156, 136, 0.05);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-inset-hi: rgba(255, 255, 255, 0.7);
+  --glass-inset-lo: rgba(15, 23, 42, 0.06);
+  --glass-drop-shadow: rgba(15, 23, 42, 0.18);
+  --ambient-glow-1: rgba(12, 156, 136, 0.08);
+  --ambient-glow-2: rgba(8, 145, 178, 0.06);
+  --phone-nav-bar: #e9e9e9;
+  color-scheme: light;
+}
+
+:root {
+  /* Physical light reflections (device chrome / glass) — same in both
+     themes, since they represent light hitting hardware, not brand color. */
+  --chrome-sheen-1: rgba(255, 255, 255, 0.06);
+  --chrome-sheen-2: rgba(255, 255, 255, 0.16);
+  --chrome-sheen-3: rgba(255, 255, 255, 0.08);
+  --screen-sheen-1: rgba(255, 255, 255, 0.07);
+  --screen-sheen-2: rgba(255, 255, 255, 0.04);
+  --device-bezel-1: #475569;
+  --device-bezel-2: #171b24;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --size-h1: 34px;
+  --size-h2: 26px;
+  --size-h3: 19px;
+  --size-h4: 16px;
+  --size-body-lg: 16px;
+  --size-body: 15px;
+  --size-body-sm: 14px;
+  --size-button: 17px;
+  --size-caption: 12px;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+  --space-13: 128px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 0 0 1px var(--border-subtle), 0 12px 24px -8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 0 0 1px var(--accent-border), 0 0 24px -6px var(--glow-primary);
+  --shadow-cta-glow: 0 0 30px -5px var(--glow-primary), 0 0 80px -20px var(--glow-secondary);
+  --shadow-cta-glow-hover: 0 0 30px -2px var(--glow-primary), 0 0 80px -15px var(--glow-secondary);
+  --shadow-overlay: 0 30px 60px -20px var(--glass-drop-shadow);
+  --shadow-mint: 0 0 30px -5px oklch(86% .18 168 / .5), 0 0 80px -20px oklch(78% .16 210 / .35);
+
+  /* Layout */
+  --container-max: 1320px;
+  --container-pad: 16px;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 240ms;
+  --motion-slow: 480ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --size-h1: 42px;
+    --size-h2: 30px;
+    --size-h3: 21px;
+    --container-pad: 24px;
+    --size-button: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --size-h1: 46px;
+    --size-h2: 40px;
+    --size-h3: 24px;
+    --size-h4: 18px;
+    --size-body-lg: 18px;
+    --size-body: 16px;
+    --container-pad: 32px;
+  }
+}

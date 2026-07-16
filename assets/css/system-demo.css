@@ -1,0 +1,3183 @@
+/* ============================================= */
+/* SYSTEM DEMO DASHBOARD                         */
+/* Standalone styles, mirrors real account UI     */
+/* ============================================= */
+
+
+/* ─── Wrapper & Dashboard ──────── */
+.sd-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 5rem auto 0;
+    padding: 0 1rem;
+}
+
+.sd-wrapper.no-main-styles {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    height: 540px;
+}
+
+.sd-wrapper.no-main-styles .sd-dashboard {
+    height: 100%;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+#system-demo-dashboard{
+    box-shadow: var(--shadow-cta-glow-hover);
+    border-radius: 16px;
+}
+
+.sd-dashboard {
+    position: relative;
+    display: flex;
+    height: 660px;
+    border-radius: 16px;
+    /* border-radius: 26px; */
+    overflow: hidden;
+    background: #f7f8fa;
+    /* border: 1px solid #ededed; */
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.12), 0 4px 20px rgba(0, 0, 0, 0.06);
+    font-size: 0.85rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #000;
+    overscroll-behavior-y: auto;
+}
+
+/* ─── Sidebar ──────────────────── */
+.sd-sidebar {
+    width: 170px;
+    min-width: 170px;
+    background: #f7f8fa;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.sd-sidebar-logo {
+    padding: 10px 16px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    text-align: left;
+}
+
+.sd-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 12px 0;
+    gap: 8px;
+}
+
+.sd-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #8f97a1;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background 0.15s, color 0.15s;
+    text-align: left;
+}
+
+.sd-nav-item-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sd-nav-item-left svg {
+    width: 15px;
+}
+
+.sd-nav-item:hover {
+    background: #e8ebee;
+    color: #000;
+}
+
+.sd-nav-item.active {
+    background: #e8ebee;
+    color: #000;
+    font-weight: 500;
+}
+
+.sd-nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 1px 5px;
+}
+
+.sd-nav-item.chats .sd-nav-badge {
+    background: #18bf87;
+}
+
+.sd-nav-item.tasks .sd-nav-badge {
+    background: #ff5959;
+}
+
+.sd-unread-badge {
+    background: #18bf87;
+    font-weight: 500;
+    padding: 1px 5px;
+    color: #fff;
+    height: 20px;
+    min-width: 20px;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ─── Main Area ────────────────── */
+.sd-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #f7f8fa;
+}
+
+/* ─── Header ───────────────────── */
+.sd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 46px;
+    min-height: 46px;
+}
+
+.ref-link-container {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.sd-reflink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    color: #8f97a1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.sd-reflink:hover {
+    background: #e8ebee;
+}
+
+.sd-reflink-label {
+    font-weight: 400;
+    color: #000;
+}
+
+.sd-reflink-url {
+    color: #18bf87;
+    font-weight: 400;
+}
+
+.sd-assistant-trigger {
+    width: 200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.sd-assistant-trigger:hover {
+    background: #e8ebee;
+}
+
+.sd-mia-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: url(../images/all/assist-2.webp) center/cover;
+    background-color: #eee;
+}
+
+/* ─── Content ──────────────────── */
+.sd-content {
+    flex: 1;
+    overflow: hidden;
+    margin-right: 16px;
+    background: #fff;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* ─── Avatar ───────────────────── */
+.sd-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    user-select: none;
+    overflow: hidden;
+}
+
+.sd-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================= */
+/* TEAM PAGE                                      */
+/* ============================================= */
+
+.sd-team-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sd-funnel-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 6px 12px;
+    background: #849e96;
+    border-radius: 6px 6px 0 0;
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.sd-funnel-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.sd-funnel-tab {
+    padding: 7px 12px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.sd-funnel-tab:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sd-funnel-tab.active {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sd-tab-count {
+    font-size: 0.72rem;
+    opacity: 0.7;
+    margin-left: 4px;
+}
+
+.sd-funnel-tab.active .sd-tab-count {
+    opacity: 1;
+}
+
+.sd-team-content {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+/* Generation Table */
+.sd-gen-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sd-generation{
+    margin-bottom: 10px;
+}
+
+.sd-gen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: #000;
+    background: #e5ede8;
+    /* border-top: 1px solid #ededed; */
+}
+
+.sd-gen-header:hover {
+    background: #d9e6de;
+}
+
+.sd-leads-table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0px;
+}
+
+.sd-table-head {
+    background: #f7fbf7;
+    /* border-bottom: 1px solid #f0f0f0; */
+}
+
+.sd-table-head th {
+    padding: 6px 16px;
+    text-align: left;
+    font-size: 0.72rem;
+    color: #8f97a1;
+    font-weight: 400;
+}
+
+.sd-lead-row {
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.12s;
+    text-align: left;
+}
+
+.sd-lead-row .rate-stars{
+    gap: 3px;
+}
+
+.sd-lead-row .rate-stars svg{
+    width: 12px;
+    height: 12px;
+}   
+
+.sd-lead-row:hover {
+    background: #f3f8f4;
+}
+
+.sd-lead-row.active {
+    background: #eaf3ed;
+}
+
+.sd-lead-cell {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sd-lead-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sd-lead-status {
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+/* ============================================= */
+/* SLIDE-OUT PANELS (Client Card, Scripts, Mia)   */
+/* ============================================= */
+
+.sd-panel-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    background: #fff;
+    border-left: 1px solid #ededed;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(115%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9991;
+}
+
+.system-landing .sd-panel-overlay{
+    z-index: 1;
+}
+
+.sd-panel-overlay.open {
+    transform: translateX(0);
+}
+
+.sd-panel-overlay.sd-panel-left {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: 1px solid #ededed;
+    transform: translateX(-115%);
+}
+
+.sd-panel-overlay.sd-panel-left.open {
+    transform: translateX(0);
+}
+
+.sd-panel-left .sd-panel-header {
+    margin-bottom: 0;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Client Card specific expanded size */
+.sd-client-card-panel {
+    width: 600px;
+    max-width: 100%;
+}
+
+.sd-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid #ededed;
+}
+
+.sd-cc-left .sd-panel-header {
+    padding: 0 0 16px;
+}
+
+.sd-panel-header h3 {
+    margin: 0;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.sd-panel-close {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 26px;
+    padding: 4px;
+    margin: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    padding: 4px;
+    z-index: 99;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.sd-panel-close:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+.assistant-mia .sd-panel-close {
+    top: 5px;
+    left: auto;
+    right: 10px;
+}
+
+.sd-panel-header.assistant-mia {
+    display: flex;
+    padding: 10px 16px;
+    margin: 0;
+}
+
+.sd-panel-left .sd-panel-close {
+    top: 8px;
+    left: auto;
+    right: 10px;
+}
+
+.sd-panel-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+}
+
+/* 2-column Client Card */
+.sd-cc-left {
+    width: 220px;
+    border-right: 1px solid #f0f0f0;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.sd-cc-left .assistant-mia {
+    padding: 0 0 16px;
+}
+
+.sd-cc-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sd-cc-header,
+.sd-panel-header {
+    display: table;
+    /* flex-direction: column;
+    align-items: center; */
+    text-align: left;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.sd-cc-header .sd-avatar,
+.sd-panel-header .sd-avatar {
+    border-radius: 20px;
+    margin: 0;
+    margin-top: 30px;
+    width: 130px !important;
+    height: 130px !important;
+}
+
+.sd-panel-header .sd-avatar {
+    margin-top: 0;
+}
+
+.sd-cc-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sd-cc-header .sd-cc-name,
+.sd-panel-header h4 {
+    margin: 10px 0 5px;
+}
+
+.sd-cc-status {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 400;
+    color: #000 !important;
+    background: #fff986 !important;
+}
+
+.sd-cc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 0px;
+}
+
+.sd-cc-info a{
+    text-decoration: none !important;
+}
+
+.sd-cc-info-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sd-cc-label {
+    font-size: 0.78rem;
+    color: #8f97a1;
+    font-weight: 400;
+}
+
+.sd-cc-value {
+    font-size: 0.78rem;
+    color: #000;
+}
+
+/* cc-right tabs */
+.sd-cc-tabs {
+    display: flex;
+    border: none;
+    background: #849e97;
+    padding: 8px 12px;
+    gap: 4px;
+}
+
+.sd-client-card-panel .sd-cc-tabs {
+    background: transparent;
+    padding-bottom: 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sd-cc-tab {
+    flex: 1;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.sd-client-card-panel .sd-cc-tab {
+    color: #000;
+    padding-bottom: 10px;
+    margin-bottom: -1px;
+    border-radius: 0;
+    border-bottom: 2px solid #18bf87;
+    border-color: transparent;
+}
+
+.sd-cc-tab.active {
+    color: #000 !important;
+    background: #fff !important;
+}
+
+.sd-client-card-panel .sd-cc-tab.active {
+    border-bottom: 2px solid #18bf87;
+    color: #18bf87;
+}
+
+.sd-cc-tab:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sd-client-card-panel .sd-cc-tab:hover {
+    color: #18bf87;
+}
+
+.sd-cc-body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+.sd-card-notes-box{
+    display: grid;
+    grid-template-rows: 1fr 60px;
+    height: 100%;
+}
+
+/* ============================================= */
+/* CHATS PAGE                                     */
+/* ============================================= */
+
+.sd-chats-page {
+    display: flex;
+    height: 100%;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+/* Left List */
+.sd-chats-left {
+    width: 250px;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sd-cht-tabs {
+    display: flex;
+    gap: 5px;
+    background: #849e97;
+    padding: 8px 12px;
+    border-right: 1px solid #98aea8;
+}
+
+.sd-cht-tab {
+    flex: 1;
+    padding: 4px 5px;
+    border-radius: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #fff;
+    transition: 0.15s;
+}
+
+.sd-cht-tab:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sd-cht-tab.active {
+    background: #fff;
+    color: #000;
+}
+
+.sd-chats-list-items {
+    flex: 1;
+    overflow-y: auto;
+    border-right: 1px solid #ededed;
+    text-align: left;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+.sd-gen-divider {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    color: #6b7e74;
+    background: #eff5f1;
+    font-weight: 400;
+    /* border-bottom: 1px solid #ededed; */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    text-align: left;
+}
+
+/* Center column */
+.sd-chats-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sd-chats-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #849e97;
+    padding: 4px 12px;
+    border-right: 1px solid #98aea8;
+    color: #fff;
+}
+
+html[lang="ja"] .sd-chats-toolbar {
+    min-height: 46px;
+}
+
+.sd-card-chat .sd-chats-toolbar {
+    background: #f7f8fa;
+    color: #000;
+    border-right: 0;
+}
+
+.sd-toolbar-left {
+    width: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+}
+
+.sd-toolbar-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: 0.15s;
+}
+
+.sd-toolbar-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sd-card-chat .sd-toolbar-item:hover {
+    background: #e8e9eb;
+}
+
+.sd-chat-item.active,
+.sd-chat-item:hover {
+    background: #f0f7f4;
+}
+
+/* Messages */
+.sd-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-right: 1px solid #ededed;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+.sd-msg {
+    max-width: 75%;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    word-break: break-word;
+    position: relative;
+    text-align: left;
+}
+
+.sd-no-chat-selected {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.message-paragraph {
+    margin-bottom: 0.75rem;
+}
+
+.message-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.sd-msg-user {
+    align-self: flex-start;
+    background: #f0f7f4;
+    color: #1a3a1a;
+    border-bottom-left-radius: 4px;
+}
+
+.sd-msg-ai,
+.sd-msg-manager {
+    align-self: flex-end;
+    background: #e8f0fe;
+    color: #1a2a5c;
+    border-bottom-right-radius: 4px;
+}
+
+.sd-msg.highlight-red {
+    background: #fff1f2 !important;
+    color: #e11d48 !important;
+    border: 1px solid #fecaca !important;
+    /* background: #e11d48 !important;
+    color: #ffffff !important;
+    border: 1px solid #e11d48 !important; */
+}
+
+.sd-msg.highlight-red .sd-msg-globe {
+    color: #e11d48 !important;
+}
+
+.sd-msg-globe {
+    position: absolute;
+    top: 50%;
+    right: auto;
+    left: -5px;
+    transform: translate(-100%, -50%);
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #8f97a1;
+    transition: 0.2s;
+    z-index: 2;
+}
+
+.sd-msg-globe svg{
+    width: 12px;
+    height: 12px;
+}
+
+.sd-msg-globe:hover,
+.sd-msg-globe.active {
+    color: #18bf87;
+}
+
+
+.sd-msg-user .sd-msg-globe {
+    transform: translate(100%, -50%);
+    right: -5px;
+    left: auto;
+}
+
+/* Input bar */
+.sd-chat-input-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    border-top: 1px solid #ededed;
+    background: #fff;
+    border-right: 1px solid #ededed;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.sd-chat-input {
+    flex: 1 1;
+    height: 60px;
+    border: none;
+    padding: 12px;
+    padding-right: 60px;
+    font-size: 0.85rem;
+    outline: none;
+    background: transparent;
+    resize: none;
+}
+
+.sd-chat-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.sd-send-btn {
+    width: 36px;
+    height: 32px;
+    background: #18bf87;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.sd-send-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #8f97a1;
+}
+
+.sd-chat-input-bar .sd-send-btn {
+    position: absolute;
+    right: 12px;
+}
+
+.sd-chat-input-bar textarea {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Right column */
+.sd-chats-right {
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sd-note-item{
+    border-bottom: 1px solid #ededed;
+    text-align: left;
+    padding-bottom: 12px;
+}
+
+.sd-note-item:last-child{
+    border-bottom: none;
+}
+
+/* ============================================= */
+/* TASKS PAGE                                     */
+/* ============================================= */
+
+.sd-tasks-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sd-tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+    border-bottom: 1px solid #ededed;
+}
+
+.sd-tasks-tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.sd-task-tab {
+    padding: 15px 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #8f97a1;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.sd-task-tab:hover{
+    color: #000;
+}
+
+.sd-task-tab.active {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.sd-btn-new-task {
+    background: #18bf87;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.sd-tasks-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+.sd-task-group {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sd-tg-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    padding: 12px 16px;
+    background: #e5ede8;
+    /* border-bottom: 1px solid #f0f0f0; */
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+    justify-content: space-between;
+}
+
+.sd-tg-header:hover {
+    background: #cfe0d5;
+}
+
+.sd-task-group.open .sd-tg-header {
+    border-bottom-color: transparent;
+}
+
+.accordion-chevron {
+    transition: transform 0.3s;
+    color: #8f97a1;
+}
+
+.accordion-chevron.open {
+    transform: rotate(0deg);
+}
+
+.accordion-chevron:not(.open) {
+    transform: rotate(-90deg);
+}
+
+.sd-tg-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.sd-tg-dot.group-overdue { background: #ff4d4f; box-shadow: 0 0 8px rgba(255, 77, 79, 0.4); }
+.sd-tg-dot.group-today { background: #18bf87; box-shadow: 0 0 8px rgba(24, 191, 135, 0.4); }
+.sd-tg-dot.group-this_week { background: #faad14; box-shadow: 0 0 8px rgba(250, 173, 20, 0.4);}
+.sd-tg-dot.group-planned { background: #1890ff; box-shadow: 0 0 8px rgba(24, 144, 255, 0.4); }
+
+.flex-center-8 { display: flex; align-items: center; gap: 8px; }
+.flex-center-6 { display: flex; align-items: center; gap: 6px; }
+.flex-items { display: flex; align-items: center; }
+
+.sd-tg-table-wrapper {
+    padding: 0 0px 16px;
+    text-align: left;
+}
+
+.sd-tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.sd-tasks-table th:nth-child(1) { width: 12%; } /* Date */
+.sd-tasks-table th:nth-child(2) { width: 15%; } /* Type */
+.sd-tasks-table th:nth-child(3) { width: 23%; } /* Client */
+.sd-tasks-table th:nth-child(4) { width: 35%; } /* Title */
+.sd-tasks-table th:nth-child(5) { width: 15%; } /* Priority */
+
+.sd-tasks-table th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    color: #8f97a1;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sd-task-row {
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.2s;
+}
+
+.sd-task-row:last-of-type {
+    border-bottom: none;
+}
+
+.sd-task-row:hover {
+    background: #fcfcfc;
+}
+
+.sd-task-cell {
+    padding: 12px;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.sd-task-client-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #18bf87;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-decoration: none !important;
+    transition: color 0.2s;
+}
+
+.sd-task-client-link:hover {
+    color: #14a374;
+    text-decoration: underline;
+}
+
+.sd-task-priority {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.sd-task-priority.priority-high,
+.priority-high {
+    background: #ff4d4f;
+}
+
+.sd-task-priority.priority-medium,
+.priority-medium {
+    background: #faad14;
+}
+
+.sd-task-priority.priority-low,
+.priority-low {
+    background: #18bf87;
+}
+
+/* ============================================= */
+/* MODALS & MISC                                  */
+/* ============================================= */
+
+.sd-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sd-modal {
+    background: #fff;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sd-modal-h {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+.sd-form-g {
+    margin-bottom: 12px;
+}
+
+.sd-form-g label {
+    display: block;
+    font-size: 0.8rem;
+    color: #8f97a1;
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+.sd-select {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 0 8px;
+    font-size: 0.85rem;
+}
+
+.sd-btn-save {
+    width: 100%;
+    background: #18bf87;
+    color: #fff;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Status change in Chat Info */
+.sd-status-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.sd-btn-status {
+    flex: 1;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: #e8ebee;
+    font-size: 0.72rem;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.sd-btn-status:hover {
+    background: #18bf87;
+    color: #fff;
+}
+
+.sd-btn-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* New Note in Client Info */
+.sd-note-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #f0f0f0;
+    background: #fcfcfc;
+}
+
+.sd-note-input {
+    flex: 1;
+    height: 36px;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+    outline: none;
+}
+
+/* Script items */
+.sd-script-list {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sd-script-item {
+    text-align: left;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #f5f6f8;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sd-script-item:hover {
+    background: #f1f7f4;
+}
+
+.sd-script-title {
+    display: block;
+    font-weight: 600;
+    font-size: 0.82rem;
+    margin-bottom: 4px;
+}
+
+.sd-script-preview {
+    display: block;
+    font-size: 0.72rem;
+    color: #8f97a1;
+    line-height: 1.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .sd-client-card-panel {
+        width: 100%;
+    }
+
+    .sd-chats-right {
+        display: none;
+    }
+}
+
+/* Refactored inline styles to utility classes */
+.text-green {
+    color: #18bf87;
+}
+
+.sd-rating-stars {
+    display: flex;
+    gap: 2px;
+    color: #f59e0b;
+}
+
+.flex-col-100 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.no-border-right {
+    border-right: none !important;
+}
+
+.p-16 {
+    padding: 16px;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+.text-gray-sm {
+    font-size: 0.7rem;
+    color: #8f97a1;
+}
+
+.note-text {
+    margin: 4px 0;
+    font-size: 0.8rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mr-4 {
+    margin-right: 4px;
+}
+
+.sd-task-mini-box {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 8px;
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.task-mini-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.sd-task-mini-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.text-sm {
+    font-size: 0.78rem;
+}
+
+.sd-log-item {
+    display: flex;
+    gap: 12px;
+    border-left: 1px solid #eee;
+    padding-left: 12px;
+    padding-bottom: 16px;
+    position: relative;
+}
+
+.sd-log-dot {
+    position: absolute;
+    left: -4.5px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #eee;
+}
+
+.sd-log-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.sd-log-date {
+    min-width: 80px;
+}
+
+.border-b {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.min-w-0 {
+    min-width: 0;
+}
+
+.sd-cc-title {
+    margin: 0;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.overflow-y {
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+}
+
+.btn-30 {
+    width: 30px;
+    height: 30px;
+}
+
+.sd-chat-item-inner {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.chat-time {
+    font-size: 0.65rem;
+    color: #8f97a1;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+.text-bold-8 {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.chat-preview-text {
+    font-size: 0.72rem;
+    color: #8f97a1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 130px;
+}
+
+.ml-4 {
+    margin-left: 4px;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.flex-center-6 {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.whitespace-pre {
+    white-space: pre-line;
+}
+/* --- Custom Language Dropdown --- */
+.sd-custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.sd-custom-select-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    background: #f9fafb;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+}
+
+.sd-custom-select-btn:hover {
+    background: #fff;
+    border-color: #d1d5db;
+}
+
+.sd-lang-flag-sm {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sd-lang-flag-sm svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sd-custom-select-btn .chevron-icon {
+    margin-left: auto;
+    color: #8f97a1;
+    transition: transform 0.2s ease;
+}
+
+.sd-custom-select-btn .chevron-icon.is-open {
+    transform: rotate(180deg);
+}
+
+.sd-custom-select-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+    z-index: 100;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.sd-custom-select-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.8rem;
+    color: #1a1a1a;
+}
+
+.sd-custom-select-item:hover {
+    background: #f5f7f9;
+}
+
+.sd-rating-stars-inline {
+    display: flex;
+    gap: 2px;
+}
+
+.sd-cc-status-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 0;
+}
+
+.sd-client-card-panel .sd-cc-status-actions{
+    flex-direction: column;
+}
+
+.sd-cc-status-actions.compact {
+    margin-top: 16px;
+}
+
+.sd-status-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    cursor: pointer;
+}
+
+.sd-status-btn:not(.disabled):hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.sd-status-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    display: none;
+}
+
+.sd-status-btn.next {
+    background: var(--color-primary);
+    color: #fff !important;
+}
+
+.sd-status-btn.next:hover {
+    background: var(--color-primary-dark);
+}
+
+.sd-cc-value.hover-underline:hover {
+    text-decoration: underline;
+}
+
+.sd-cc-status-actions.compact .sd-status-btn {
+    padding: 8px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+.sd-cc-status-actions.compact .sd-status-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* ─── GUIDES PAGE ────────────────── */
+.sd-guides-page {
+    padding: 24px 36px;;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sd-guide-page-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+.sd-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+    margin-top: 10px;
+}
+
+.page-landings{
+    padding: 24px;
+    height: auto;
+    overflow: auto;
+}
+
+.sd-page-title{
+    text-align: left;
+    margin: 0;
+    font-weight: 500;
+}
+
+.sd-guide-card {
+    background: #fff;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    padding: 16px;
+    /* aspect-ratio: 1 / 0.8; */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.sd-guide-card:hover {
+    border-color: #18bf87;
+    box-shadow: 0 4px 12px rgba(24, 191, 135, 0.08);
+    transform: translateY(-2px);
+}
+
+.sd-guide-icon-box {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    background: rgba(24, 191, 135, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.sd-guide-card-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    margin: 0;
+}
+
+.sd-guide-card-desc {
+    font-size: 0.78rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.sd-guides-search-wrapper {
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.sd-guides-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* background: #f8f8f8; */
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.sd-guides-search input {
+    border: none;
+    background: transparent;
+    font-size: 0.85rem;
+    width: 100%;
+    outline: none;
+}
+
+.sd-faq-section {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ededed;
+    overflow: hidden;
+}
+
+.sd-faq-item {
+    border-bottom: 1px solid #ededed;
+}
+
+.sd-faq-item:last-child {
+    border-bottom: none;
+}
+
+.sd-faq-q {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: background 0.2s;
+}
+
+.sd-faq-q:hover {
+    background: #fafafa;
+}
+
+.sd-faq-a {
+    padding: 16px 20px 16px;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* ─── GUIDE ARTICLE VIEW ─────────── */
+.sd-guide-article-page {
+    padding: 24px 24px 0px 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sd-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+.sd-back-btn:hover {
+    color: #18bf87;
+}
+
+.sd-guide-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sd-guide-nav-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-right: 1px solid #ededed;
+    padding-right: 20px;
+    overflow-y: auto;
+}
+
+.sd-guide-nav-item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sd-guide-nav-item:hover {
+    background: #f8f8f8;
+    color: #1a1a1a;
+}
+
+.sd-guide-nav-item.active {
+    background: rgba(24, 191, 135, 0.08);
+    color: #18bf87;
+    font-weight: 400;
+}
+
+.sd-guide-assistant-card {
+    margin-top: 1rem;
+    padding: 24px 0 10px;
+    border-top: 1px solid #ededed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.sd-assistant-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.sd-mia-avatar.bigger {
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.sd-assistant-chat-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #18bf87;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sd-assistant-chat-btn:hover {
+    background: #15a877;
+    transform: translateY(-1px);
+}
+
+.sd-guide-content-right {
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.sd-article-h {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    margin-top: 0;
+}
+
+.sd-video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #2a2a2a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.sd-video-placeholder svg {
+    color: #fff;
+    fill: #fff;
+    opacity: 1;
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+}
+
+.sd-article-text {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.sd-article-text p {
+    margin-bottom: 16px;
+}
+
+.sd-guide-nav-footer {
+    margin-top: 4px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-top: 1px solid #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.sd-nav-footer-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid #ededed;
+    background: #fff;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sd-nav-footer-btn:hover {
+    border-color: #18bf87;
+    color: #18bf87;
+    background: #fcfcfc;
+}
+
+
+/* ─── LANDINGS PAGE ─────────────── */
+.sd-landings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 24px 0 40px;
+}
+
+.sd-land-card {
+    background: #fff;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.sd-land-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.sd-land-preview {
+    width: 100%;
+    aspect-ratio: 10 / 10;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.sd-land-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sd-land-info {
+    padding: 16px;
+    background: #f7f8fa;
+}
+
+.sd-land-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    text-align: left;
+    margin-top: 0;
+}
+
+.sd-land-actions {
+    display: flex;
+    gap: 10px;
+    flex-flow: column;
+}
+
+.sd-land-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 0;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #ededed;
+}
+
+.sd-land-btn.view {
+    background: #fff;
+    color: #444;
+}
+
+.sd-land-btn.view:hover {
+    background: #f8f8f8;
+}
+
+.sd-land-btn.copy {
+    background: #18bf87;
+    color: #fff;
+    border-color: #18bf87;
+}
+
+.sd-land-btn.copy:hover {
+    background: #15a877;
+}
+
+/* Bots Section */
+.sd-bot-grid-container {
+    margin-top: 20px;
+}
+
+.sd-bot-add-card {
+    border: 2px dashed #ededed;
+    background: transparent;
+    cursor: pointer;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.sd-bot-add-card:hover {
+    border-color: #18bf87;
+    background: #f7fcf9;
+}
+
+.sd-bot-add-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f8f8f8;
+    color: #999;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+
+.sd-bot-add-card:hover .sd-bot-add-icon {
+    background: #18bf87;
+    color: #fff;
+}
+
+.sd-bot-add-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.sd-bot-add-card:hover .sd-bot-add-text {
+    color: #18bf87;
+}
+
+.sd-section-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 40px 0;
+}
+
+.sd-bots-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sd-bot-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ededed;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.sd-bot-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.sd-bot-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f8f8f8;
+    padding: 7px;
+    margin-bottom: 0px;
+    background: #40acff;
+}
+
+.sd-bot-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sd-bot-avatar svg{
+    fill: #fff;
+}
+
+.sd-bot-info {
+    margin-bottom: 0px;
+    flex: 1;
+}
+
+.sd-bot-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 10px 0;
+}
+
+.sd-bot-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+    display: none;
+}
+
+.sd-bot-copy-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: #f7f8fa;
+    color: #444;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sd-bot-copy-btn:hover {
+    background: #18bf87;
+    color: #fff;
+    border-color: #18bf87;
+}
+
+@media (max-width: 1200px) {
+    .sd-bots-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sd-bots-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── ONBOARDING LAYOUT ──────────── */
+.sd-onboarding-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.sd-guides-grid.mini {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.sd-onboarding-left .sd-land-card {
+    margin-bottom: 0;
+    max-width: 320px;
+}
+
+.sd-guides-page.onboarding {
+    padding: 24px;
+}
+
+@media (max-width: 1024px) {
+    .sd-onboarding-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================= */
+/* MOBILE ADAPTATION                             */
+/* ============================================= */
+
+@media screen and (max-width: 768px) {
+    .sd-wrapper {
+        display: none !important;
+    }
+
+    .sd-wrapper.no-main-styles {
+        height: auto;
+        min-height: 500px;
+    }
+
+    .sd-dashboard {
+        flex-direction: column;
+        height: 600px;
+        border-radius: 12px;
+    }
+
+    /* Hide Desktop Sidebar */
+    .sd-sidebar {
+        display: none;
+    }
+
+    /* Header adjustments */
+    .sd-header {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .sd-reflink {
+        font-size: 0.7rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sd-assistant-trigger {
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    /* Main Content Area */
+    .sd-main {
+        padding-bottom: 60px; /* Space for bottom nav */
+    }
+
+    .sd-content {
+        margin-right: 0;
+        border-radius: 0;
+    }
+
+    /* Bottom Nav for Mobile */
+    .sd-mobile-nav {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: #fff;
+        border-top: 1px solid #ededed;
+        z-index: 1000;
+        justify-content: space-around;
+        padding: 0 10px;
+    }
+
+    .sd-mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border: none;
+        background: none;
+        color: #8f97a1;
+        cursor: pointer;
+        font-size: 0.65rem;
+        padding: 12px 0 6px;
+        flex: 1;
+        position: relative;
+    }
+
+    .sd-mobile-nav-item.active {
+        color: #18bf87;
+    }
+
+    .sd-mobile-nav-item svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sd-mobile-nav-badge {
+        position: absolute;
+        top: 8px;
+        right: 50%;
+        margin-right: -18px;
+        background: #ff5959;
+        color: #fff;
+        font-size: 0.6rem;
+        min-width: 14px;
+        height: 14px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+    }
+
+    /* Team Page */
+    .sd-leads-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    /* Client Card adjustments */
+    .sd-client-card-panel {
+        width: 100% !important;
+        height: 100%;
+        transform: translateY(115%);
+        right: 0;
+        left: 0;
+    }
+
+    .sd-panel-overlay.open {
+        transform: translateY(0);
+    }
+
+    .sd-panel-content {
+        flex-direction: column;
+    }
+
+    .sd-cc-left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    /* Chats Page list/center interaction */
+    .sd-chats-left {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .sd-chats-center {
+        display: none; /* In simple mobile demo, we usually show one or the other */
+    }
+
+    .sd-chats-page{
+        border-radius: 0;
+    }
+
+    .sd-chats-page.chat-selected .sd-chats-left {
+        /* display: none; */
+    }
+
+    .sd-chats-page.chat-selected .sd-chats-center {
+        display: flex;
+    }
+
+    /* Status buttons for mobile */
+    .sd-cc-status-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sd-status-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .sd-mobile-nav {
+        display: none;
+    }
+}
+
+.sd-mobile-back {
+    display: none;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 2px;
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .sd-chat-info-content.sd-mobile-only .sd-cc-header .sd-avatar{
+        margin-top: 5px;
+    }
+
+    .sd-mobile-chats-nav.sd-mobile-only{
+        max-width: calc(50% + 30px);
+        margin-right: 0 !important;
+        justify-content: space-between !important;
+        display: flex !important;
+    }
+
+    .sd-chat-tab-btn{
+        padding: 8px 15px !important;
+    }
+    .sd-chat-tab-btn.active{
+        color: #fff !important;
+        background: #849e97 !important;
+    }
+
+    .sd-mobile-back {
+        display: block;
+    }
+}
+
+/* ============================================= */
+/* ADDITIONAL MOBILE FIXES                       */
+/* ============================================= */
+
+.nowrap {
+    white-space: nowrap !important;
+}
+
+.scrollable-y {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sd-table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-padded {
+    padding-bottom: 70px !important; /* Space for bottom nav */
+}
+.sd-mobile-only{
+    display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    /* Fix dashboard and content height for scrolling */
+    .sd-dashboard {
+        height: 90vh !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+        border-radius: 12px;
+        z-index: 5;
+    }
+    
+    .sd-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding-bottom: 60px; /* Space for bottom nav */
+    }
+
+    .sd-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden; /* Hide overflow, children handle scroll */
+    }
+
+    /* internal scrolling pages */
+    .sd-team-page, .sd-chats-page, .sd-tasks-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .sd-guides-page, .sd-page-container, .sd-landings-page {
+        height: 100%;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        display: block !important;
+    }
+    
+    .sd-team-content, .sd-tasks-content, .sd-chat-messages, .sd-guide-article-page {
+        flex: 1;
+        overflow-y: auto !important;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sd-guides-grid, .sd-landings-grid {
+        display: grid !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    .sd-guide-article-page {
+        display: flex;
+        flex-direction: column;
+    }
+    .sd-guide-layout {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .sd-cht-tabs{
+        
+        background: transparent;
+    }
+
+    .sd-cht-tab.active{
+        background: #849e97;
+        color: #fff;
+    }
+
+    .sd-cht-tab{
+        color: #000;
+    }
+
+    /* Header adjustments */
+    .sd-header {
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        gap: 12px;
+    }
+
+    .sd-header-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .sd-reflink {
+        width: auto !important;
+        padding: 6px 10px;
+    }
+
+    .sd-assistant-trigger {
+        width: auto !important;
+        padding: 6px 10px;
+        flex-shrink: 0;
+    }
+
+    .sd-assistant-trigger span {
+        display: none; /* Only avatar on mobile header? Or keep text? User said horizontal */
+    }
+
+    /* Horizontal Landings */
+    .horizontal-cards .sd-land-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .horizontal-cards .sd-land-preview {
+        width: 100px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+
+    .horizontal-cards .sd-land-info {
+        flex: 1;
+        padding: 0;
+    }
+
+    .horizontal-cards .sd-land-title {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .horizontal-cards .sd-land-actions {
+        gap: 8px;
+    }
+
+    /* Guides grid Fix */
+    .mobile-single-col {
+        grid-template-columns: 1fr !important;
+    }
+
+    .sd-guide-card {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    .sd-guide-card-content {
+        flex: 1;
+        text-align: left;
+    }
+
+    /* Tasks table horizontal scrolling */
+    .sd-tasks-table {
+        min-width: 450px;
+    }
+
+    .sd-tasks-table tr,
+    .sd-task-row {
+        display: grid;
+        grid-template-columns: 60px 130px 130px 200px 100px;
+    }
+
+    .sd-guides-page {
+        padding: 24px 24px;
+    }
+
+    .min-w-150 {
+        min-width: 150px;
+    }
+
+    /* Tasks Table Horizontal Scroll */
+    .sd-tg-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        display: block;
+    }
+
+    /* Floating Action Button */
+    .sd-btn-new-task-floating {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        bottom: 80px;
+        width: 56px;
+        height: 56px;
+        border-radius: 28px;
+        background: #18bf87;
+        color: #fff;
+        border: none;
+        box-shadow: 0 4px 15px rgba(24, 191, 135, 0.4);
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+    }
+
+    .sd-desktop-only {
+        display: none !important;
+    }
+
+    .sd-mobile-only {
+        display: inline !important;
+    }
+
+    .sd-mobile-only.sd-toolbar-left{
+        display: flex !important;
+        background: #849e97;
+        padding: 8px 12px;
+        margin: 0 !important;
+    }
+
+    .mobile-col {
+        flex-direction: column !important;
+        gap: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sd-wrapper.no-main-styles {
+        height: auto;
+        padding-bottom: 0px;
+    }
+
+    .sd-dashboard {
+        height: 90vh !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+        border-radius: 12px;
+        overscroll-behavior-y: auto !important;
+    }
+
+    .sd-mobile-nav {
+        position: absolute !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .sd-panel-overlay {
+        position: absolute !important;
+        height: 100% !important;
+        top: 0 !important;
+        z-index: 9991 !important;
+    }
+
+   
+
+}
+
+.mr-8 { margin-right: 8px; }
+
+.sd-tasks-table {
+    min-width: 500px;
+}
+
+.sd-tasks-table th, .sd-tasks-table td {
+    padding: 10px 12px;
+}
+
+.sd-task-group-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.sd-toolbar-left{
+    padding: 4px 12px;
+}
+
+.sd-task-group-dot.group-overdue { background: #ff5959; }
+.sd-task-group-dot.group-today { background: #18bf87; }
+.sd-task-group-dot.group-this_week { background: #3b82f6; }
+.sd-task-group-dot.group-planned { background: #94a3b8; }
+
+.sd-tg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+}
+
+/* ============================================= */
+/* ADDITIONAL MOBILE FIXES VIA CSS               */
+/* ============================================= */
+@media screen and (max-width: 768px) {
+    /* 1. Team page scroll fix */
+    .sd-team-page {
+        min-height: 0;
+        height: 100%;
+    }
+    .sd-team-content {
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior-y: auto;
+        touch-action: pan-y;
+    }
+
+    .sd-funnel-tabs{
+        background: transparent;
+        padding: 8px 12px;
+    }
+
+    .sd-funnel-tab{
+        color: #000;
+    }
+
+    .sd-funnel-tab.active{
+        background: #849e96;
+        color: #fff;
+        box-shadow: none;
+    }
+
+    /* 2. Client card: mobile layout */
+    .sd-panel-content {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    /* Mobile sticky header: back + tabs */
+    .sd-cc-mobile-header {
+        display: flex !important;
+        align-items: center;
+        gap: 0;
+        background: #fff;
+        border-bottom: 1px solid #ededed;
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        flex-shrink: 0;
+        padding: 0;
+    }
+    .sd-cc-mobile-back {
+        background: none;
+        border: none;
+        padding: 10px 8px 10px 12px;
+        cursor: pointer;
+        color: #1a1a1a;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+    .sd-cc-mobile-tabs {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex: 1;
+        height: 40px;
+        gap: 0;
+        padding-right: 8px;
+    }
+    .sd-cc-mobile-tabs::-webkit-scrollbar { display: none; }
+    .sd-cc-mobile-tabs .sd-cc-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+        border-radius: 0;
+        border-bottom: 2px solid transparent;
+        background: none;
+    }
+    .sd-cc-mobile-tabs .sd-cc-tab.active {
+        color: #18bf87;
+        background: none;
+        border-bottom: 3px solid #18bf87;
+    }
+
+    /* Mobile tab body */
+    .sd-cc-mobile-body {
+        display: flex !important;
+        flex-direction: column;
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+        overscroll-behavior-y: auto;
+        touch-action: pan-y;
+    }
+
+    /* Desktop parts hidden on mobile */
+    .sd-panel-content .sd-cc-left.sd-desktop-only,
+    .sd-panel-content .sd-cc-right.sd-desktop-only {
+        display: none !important;
+    }
+
+    /* Keep the inner sd-cc-left (inside mobile body) unstyled as a column block */
+    .sd-cc-mobile-body .sd-cc-left {
+        height: auto;
+        overflow: visible;
+        border: none;
+        width: 100%;
+    }
+
+    /* Old sticky tabs in chats toolbar — keep for chats center */
+    .sd-cc-tabs {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: #849e97 !important;
+        color: #fff !important;
+        margin-top: 0 !important;
+        display: flex !important;
+    }
+    .sd-panel-content .sd-cc-tabs{
+        background: #fff !important;
+    }
+    .sd-chats-toolbar-top{
+        padding: 8px 12px;
+        justify-content: space-between;
+    }
+    .sd-chats-toolbar{
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0 !important;
+    }
+    /* Sticky chat toolbar under tabs */
+    .sd-card-chat .sd-chats-toolbar {
+        position: sticky;
+        top: 0px;
+        z-index: 15;
+    }
+
+    .sd-toolbar-item{
+            padding: 8px 10px;
+    }
+
+    /* 3. Chats scrolling and fixed input */
+    .sd-chats-center {
+        display: none !important;
+    }
+    .sd-chats-page.chat-selected .sd-chats-center {
+        display: flex !important;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+        position: relative;
+        width: 100%;
+    }
+    .sd-card-chat {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+    .sd-chat-messages {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior-y: auto;
+        touch-action: pan-y;
+    }
+    .sd-chat-input-bar {
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+        background: #fff;
+    }
+
+    /* 4. Assistant Panel Input Margin Removed */
+    /* The panel overlays the mobile nav with z-index 2000, so we do not need bottom padding. */
+
+    /* 6. Header ref link & assistant */
+    .sd-header {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 6px 10px;
+    }
+    .sd-reflink-url {
+        display: none !important;
+    }
+    .ref-link-container, .sd-assistant-trigger {
+        width: auto !important;
+        flex: 1;
+        justify-content: start;
+    }
+     .sd-assistant-trigger {
+        justify-content: end;
+     }
+    .sd-assistant-trigger span {
+        display: block !important; /* Force show text if it was hidden */
+    }
+
+    /* 7. Guides & Header Layout */
+    .sd-guide-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .sd-faq-section{
+        display: none;
+    }
+    .sd-guides-grid{
+        margin-bottom: 0;
+    }
+    .sd-guide-nav-left{
+        display: none;
+    }
+    .sd-guide-layout{
+        overflow: visible;
+    }
+    .sd-guides-search-wrapper, .sd-guides-search {
+        width: 100%;
+    }
+    .sd-guides-grid, .sd-guides-grid.mini {
+        grid-template-columns: 1fr !important;
+    }
+    .sd-guide-article-page{
+        padding: 16px;
+    }
+    .system-hero .sd-team-page, 
+    .system-hero .sd-chats-page, 
+    .system-hero .sd-tasks-page,
+    .system-hero .sd-guide-article-page,
+    .system-hero .sd-guides-page{
+        padding-bottom: 70px;
+    }
+    .sd-guide-content-right{
+        padding-right: 0;
+    }
+    .sd-guide-nav-footer{
+        gap: 25px
+    }
+
+    .sd-guide-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        /* overflow-y: auto !important; */
+        gap: 20px;
+    }
+    .sd-guide-nav-left {
+        max-height: 200px; /* Limit nav height on mobile */
+        border-right: none;
+        border-bottom: 1px solid #ededed;
+        padding-bottom: 10px;
+        padding-right: 0;
+    }
+    .sd-guide-content-right {
+        /* overflow-y: visible !important; */
+    }
+    .page-landings {
+        height: 100% !important;
+        overflow-y: auto !important;
+    }
+    .sd-onboarding-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* 8. Landings 1-col horizontal cards */
+    .sd-landings-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .sd-land-card {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+    .sd-land-preview {
+        width: 120px !important;
+        height: 80px !important;
+        margin-bottom: 0;
+    }
+    .sd-land-info {
+        flex: 1;
+        text-align: left;
+    }
+
+    /* 9. Overall Content scrolling */
+    .sd-content {
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        height: 100% !important;
+    }
+}
