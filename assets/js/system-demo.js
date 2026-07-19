@@ -43,33 +43,33 @@ function initSystemDemo() {
         {
           level: 1,
           leads: [
-            { id: "u1", name: "Анна Миллер", status: "registered", email: "anna@mail.com", phone: "+1 351 555-0101", telegram: "@anna_m", rating: 8, avatar: "assets/images/all/ava/lead-1.webp", language: "Испанский", country: "Мексика" },
-            { id: "u2", name: "Дэвид Чен", status: "new", email: "david@mail.com", phone: "+1 202 325-0123", telegram: "@david_c", rating: 5, avatar: "assets/images/all/ava/lead-2.webp", language: "Китайский", country: "Китай" },
-            { id: "u3", name: "София Родригез", status: "investor", email: "sofia@mail.com", phone: "+34 600 123-4567", telegram: "@sofia_r", rating: 9, avatar: "assets/images/all/ava/lead-3.webp", language: "Испанский", country: "Испания" }
+            { id: "u1", name: "Анна Миллер", status: "registered", email: "anna@mail.com", phone: "+1 351 555-0101", telegram: "@anna_m", rating: 8, avatar: "../assets/images/all/ava/lead-1.webp", language: "Испанский", country: "Мексика" },
+            { id: "u2", name: "Дэвид Чен", status: "new", email: "david@mail.com", phone: "+1 202 325-0123", telegram: "@david_c", rating: 5, avatar: "../assets/images/all/ava/lead-2.webp", language: "Китайский", country: "Китай" },
+            { id: "u3", name: "София Родригез", status: "investor", email: "sofia@mail.com", phone: "+34 600 123-4567", telegram: "@sofia_r", rating: 9, avatar: "../assets/images/all/ava/lead-3.webp", language: "Испанский", country: "Испания" }
           ]
         },
         {
           level: 2,
           leads: [
-            { id: "u4", name: "Джеймс Уилсон", status: "new", email: "james@mail.com", phone: "+44 20 7946-0958", telegram: "@james_w", rating: 3, avatar: "assets/images/all/ava/lead-4.webp", language: "Английский", country: "Великобритания", managerId: "u1" },
-            { id: "u5", name: "Мария Сантос", status: "partner", email: "maria@mail.com", phone: "+55 11 7699-2169", telegram: "@maria_s", rating: 10, avatar: "assets/images/all/ava/lead-5.webp", language: "Португальский", country: "Бразилия", managerId: "u2" },
-            { id: "u6", name: "Алекс Ким", status: "registered", email: "alex@mail.com", phone: "+82 2 1234-5678", telegram: "@alex_k", rating: 6, avatar: "assets/images/all/ava/lead-6.webp", language: "Корейский", country: "Южная Корея", managerId: "u3" }
+            { id: "u4", name: "Джеймс Уилсон", status: "new", email: "james@mail.com", phone: "+44 20 7946-0958", telegram: "@james_w", rating: 3, avatar: "../assets/images/all/ava/lead-4.webp", language: "Английский", country: "Великобритания", managerId: "u1" },
+            { id: "u5", name: "Мария Сантос", status: "partner", email: "maria@mail.com", phone: "+55 11 7699-2169", telegram: "@maria_s", rating: 10, avatar: "../assets/images/all/ava/lead-5.webp", language: "Португальский", country: "Бразилия", managerId: "u2" },
+            { id: "u6", name: "Алекс Ким", status: "registered", email: "alex@mail.com", phone: "+82 2 1234-5678", telegram: "@alex_k", rating: 6, avatar: "../assets/images/all/ava/lead-6.webp", language: "Корейский", country: "Южная Корея", managerId: "u3" }
           ]
         },
         {
           level: 3,
           leads: [
-            { id: "u7", name: "Эмма Тейлор", status: "new", email: "emma@mail.com", phone: "+61 2 9876-5432", telegram: "@emma_t", rating: 4, avatar: "assets/images/all/ava/lead-7.webp", language: "Французский", country: "Канада", managerId: "u4" },
-            { id: "u8", name: "Лукас Мартин", status: "investor", email: "lucas@mail.com", phone: "+33 1 2546-6789", telegram: "@lucas_m", rating: 7, avatar: "assets/images/all/ava/lead-8.webp", language: "Немецкий", country: "Германия", managerId: "u5" },
-            { id: "u9", name: "Юки Танака", status: "investor", email: "yuki@mail.com", phone: "+81 3 1234-5678", telegram: "@yuki_t", rating: 9, avatar: "assets/images/all/ava/lead-9.webp", language: "Японский", country: "Япония", managerId: "u6" }
+            { id: "u7", name: "Эмма Тейлор", status: "new", email: "emma@mail.com", phone: "+61 2 9876-5432", telegram: "@emma_t", rating: 4, avatar: "../assets/images/all/ava/lead-7.webp", language: "Французский", country: "Канада", managerId: "u4" },
+            { id: "u8", name: "Лукас Мартин", status: "investor", email: "lucas@mail.com", phone: "+33 1 2546-6789", telegram: "@lucas_m", rating: 7, avatar: "../assets/images/all/ava/lead-8.webp", language: "Немецкий", country: "Германия", managerId: "u5" },
+            { id: "u9", name: "Юки Танака", status: "investor", email: "yuki@mail.com", phone: "+81 3 1234-5678", telegram: "@yuki_t", rating: 9, avatar: "../assets/images/all/ava/lead-9.webp", language: "Японский", country: "Япония", managerId: "u6" }
           ]
         },
         {
           level: 4,
           leads: [
-            { id: "u10", name: "Елена Волкова", status: "registered", email: "elena@mail.com", phone: "+7 900 123-45-67", telegram: "@elena_v", rating: 7, avatar: "assets/images/all/ava/lead-10.webp", language: "Русский", country: "Россия", managerId: "u7" },
-            { id: "u11", name: "Маркус Вебер", status: "new", email: "markus@mail.com", phone: "+49 30 1753-4169", telegram: "@markus_w", rating: 6, avatar: "assets/images/all/ava/lead-11.webp", language: "Немецкий", country: "Германия", managerId: "u8" },
-            { id: "u12", name: "Кьяра Росси", status: "investor", email: "chiara@mail.com", phone: "+39 02 123-4567", telegram: "@chiara_r", rating: 8, avatar: "assets/images/all/ava/lead-12.webp", language: "Итальянский", country: "Италия", managerId: "u9" }
+            { id: "u10", name: "Елена Волкова", status: "registered", email: "elena@mail.com", phone: "+7 900 123-45-67", telegram: "@elena_v", rating: 7, avatar: "../assets/images/all/ava/lead-10.webp", language: "Русский", country: "Россия", managerId: "u7" },
+            { id: "u11", name: "Маркус Вебер", status: "new", email: "markus@mail.com", phone: "+49 30 1753-4169", telegram: "@markus_w", rating: 6, avatar: "../assets/images/all/ava/lead-11.webp", language: "Немецкий", country: "Германия", managerId: "u8" },
+            { id: "u12", name: "Кьяра Росси", status: "investor", email: "chiara@mail.com", phone: "+39 02 123-4567", telegram: "@chiara_r", rating: 8, avatar: "../assets/images/all/ava/lead-12.webp", language: "Итальянский", country: "Италия", managerId: "u9" }
           ]
         }
       ]
@@ -335,9 +335,9 @@ function initSystemDemo() {
       view_btn: "Смотреть",
       copy_btn: "Копировать",
       items: [
-        { id: "l1", title: "Главный лендинг", image: "assets/images/system/land-1.png", url: "oxustech.ai/ref/system", type: "home" },
-        { id: "l2", title: "Инвестиции в OxusTech", image: "assets/images/system/land-2.png", url: "oxustech.ai/invest/ref/system", type: "invest" },
-        { id: "l3", title: "Партнерский бизнес", image: "assets/images/system/land-3.png", url: "oxustech.ai/partner/ref/system", type: "business" }
+        { id: "l1", title: "Главный лендинг", image: "../assets/images/system/land-1.png", url: "oxustech.ai/ref/system", type: "home" },
+        { id: "l2", title: "Инвестиции в OxusTech", image: "../assets/images/system/land-2.png", url: "oxustech.ai/invest/ref/system", type: "invest" },
+        { id: "l3", title: "Партнерский бизнес", image: "../assets/images/system/land-3.png", url: "oxustech.ai/partner/ref/system", type: "business" }
       ],
       bots_title: "Мои телеграм боты",
       add_bot_btn: "Добавить бота",
