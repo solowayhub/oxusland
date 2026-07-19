@@ -373,6 +373,7 @@
 }
 
 .lang-switch__option {
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -395,6 +396,7 @@
 }
 
 li[aria-selected="true"] .lang-switch__option {
+  text-decoration: none;
   color: var(--accent);
 }
 

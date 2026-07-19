@@ -26,48 +26,13 @@ function initLangSwitch() {
     document.cookie = COOKIE_KEY + '=' + code + '; path=/; max-age=31536000; SameSite=Lax';
   }
 
-  // Move the menu out of the header so its own backdrop-filter never sits
-  // inside the header's blurred stacking context (see components.css).
+  // Move the menu out of the header so backdrop-filter works properly
   document.body.appendChild(menu);
 
   function positionMenu() {
     var rect = trigger.getBoundingClientRect();
     menu.style.top = Math.round(rect.bottom + 8) + 'px';
     menu.style.right = Math.round(window.innerWidth - rect.right) + 'px';
-  }
-
-  function selectLang(code) {
-    if (code !== 'ru' && code !== 'en' && code !== 'de') return;
-
-    setLangCookie(code);
-    localStorage.setItem(STORAGE_KEY, code);
-
-    var currentPath = window.location.pathname;
-    var langRegex = /\/(ru|en|de)(\/|$)/;
-
-    if (langRegex.test(currentPath)) {
-      var newPath = currentPath.replace(langRegex, '/' + code + '$2');
-      if (newPath !== currentPath) {
-        window.location.href = newPath;
-        return;
-      }
-    } else {
-      window.location.href = '../' + code + '/';
-      return;
-    }
-
-    // Fallback UI update if path didn't change
-    var option = options.find(function (o) {
-      return o.getAttribute('data-lang-option') === code;
-    });
-    if (option) {
-      label.textContent = option.getAttribute('data-lang-name');
-      flag.setAttribute('href', getFlagIcon(code));
-      document.documentElement.setAttribute('lang', code);
-      options.forEach(function (o) {
-        o.closest('li').setAttribute('aria-selected', String(o === option));
-      });
-    }
   }
 
   function openMenu() {
@@ -81,17 +46,33 @@ function initLangSwitch() {
     trigger.setAttribute('aria-expanded', 'false');
   }
 
-  trigger.addEventListener('click', function () {
+  trigger.addEventListener('click', function (e) {
+    e.stopPropagation();
     if (menu.hidden) openMenu();
     else closeMenu();
   });
 
   options.forEach(function (option) {
-    option.addEventListener('click', function () {
+    option.addEventListener('click', function (e) {
+      e.preventDefault();
       var targetLang = option.getAttribute('data-lang-option');
-      selectLang(targetLang);
+      if (targetLang) {
+        setLangCookie(targetLang);
+        localStorage.setItem(STORAGE_KEY, targetLang);
+      }
+
+      var targetUrl = option.getAttribute('href');
+      if (!targetUrl) {
+        targetUrl = '../' + targetLang + '/';
+      }
+
+      // Handle file:// protocol or explicit index.html URLs
+      if (window.location.pathname.indexOf('.html') !== -1 && targetUrl.endsWith('/')) {
+        targetUrl = targetUrl + 'index.html';
+      }
+
       closeMenu();
-      trigger.focus();
+      window.location.href = targetUrl;
     });
   });
 
@@ -114,4 +95,3 @@ function initLangSwitch() {
     }
   });
 }
-
