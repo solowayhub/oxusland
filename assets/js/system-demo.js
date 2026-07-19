@@ -1357,7 +1357,7 @@ function initSystemDemo() {
     var html = '<div class="sd-custom-select-wrapper">' +
       '<button class="sd-custom-select-btn" data-lang-dropdown-toggle="' + dropdownType + '">' +
       '<div class="sd-lang-flag-sm">' +
-      '<img src="assets/images/flags/' + (currentCode === 'en' ? 'gb' : currentCode) + '.svg" alt="Flag" style="width:100%; height:100%; object-fit:cover;" />' +
+      '<img src="../assets/images/flags/' + (currentCode === 'en' ? 'gb' : currentCode) + '.svg" alt="Flag" style="width:100%; height:100%; object-fit:cover;" />' +
       '</div>' +
       '<span>' + name + '</span>' +
       icons.chevronDown +
@@ -1370,7 +1370,7 @@ function initSystemDemo() {
         html += '<li data-lang-select-code="' + code + '" data-lang-select-type="' + dropdownType + '">' +
           '<div class="sd-custom-select-item">' +
           '<div class="sd-lang-flag-sm">' +
-          '<img src="assets/images/flags/' + (code === 'en' ? 'gb' : code) + '.svg" alt="Flag" style="width:100%; height:100%; object-fit:cover;" />' +
+          '<img src="../assets/images/flags/' + (code === 'en' ? 'gb' : code) + '.svg" alt="Flag" style="width:100%; height:100%; object-fit:cover;" />' +
           '</div>' +
           '<span>' + langName + '</span>' +
           '</div>' +
