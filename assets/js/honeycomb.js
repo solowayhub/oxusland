@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Stable avatar face image based on coordinate index (1 to 86) from local assets
           const imgId = ((c * 7 + r * 13) % 86) + 1;
           const img = document.createElement('img');
-          img.src = `assets/images/all/ava/lead-${imgId}.webp`;
+          img.src = `../assets/images/all/ava/lead-${imgId}.webp`;
           img.alt = `Partner cell ${c}-${r}`;
           img.loading = 'lazy';
 
